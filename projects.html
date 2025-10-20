@@ -2,35 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Batshoeneng Foundation</title>
+
   <style>
     :root {
-      --purple: #4b0082; /* Royal purple */
-      --gold: #d4af37;   /* Gold */
+      --purple: #4b0082;
+      --gold: #d4af37;
       --text: #1a1a1a;
-      --bg-light: #faf8ff;
+      --bg-light: rgba(255, 255, 255, 0.8);
     }
 
     body {
       margin: 0;
       font-family: "Inter", Arial, sans-serif;
-      background-color: var(--bg-light);
       color: var(--text);
+      overflow-x: hidden;
     }
 
-    /* HEADER */
+    /* --- FULL BACKGROUND SLIDESHOW --- */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(8px) brightness(70%);
+      opacity: 0;
+      animation: slideShow 18s infinite;
+    }
+
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 6s; }
+    .slideshow img:nth-child(3) { animation-delay: 12s; }
+
+    @keyframes slideShow {
+      0%, 100% { opacity: 0; }
+      10%, 30% { opacity: 1; }
+      40%, 90% { opacity: 0; }
+    }
+
+    /* --- HEADER --- */
     header {
-      background: linear-gradient(90deg, var(--purple), #6a0dad);
+      background: rgba(75, 0, 130, 0.8);
       color: white;
       padding: 16px 0;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
     }
 
     header h1 {
       margin: 0;
       font-size: 1.8rem;
+      letter-spacing: 1px;
     }
 
     nav {
@@ -55,17 +90,28 @@
       color: white;
     }
 
-    /* MAIN */
+    /* --- MAIN CONTENT --- */
     main {
       max-width: 1000px;
-      margin: 40px auto;
+      margin: 60px auto;
       padding: 20px;
+      background: var(--bg-light);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     h2 {
       color: var(--purple);
       margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    p {
+      color: #333;
+      font-size: 1.05rem;
     }
 
     .projects-grid {
@@ -80,11 +126,12 @@
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .project-card img {
@@ -96,20 +143,24 @@
     .project-card h3 {
       margin: 16px;
       color: var(--purple);
+      font-size: 1.3rem;
     }
 
     .project-card p {
       margin: 0 16px 20px;
       color: #333;
+      font-size: 0.95rem;
     }
 
-    /* FOOTER */
+    /* --- FOOTER --- */
     footer {
       text-align: center;
-      background-color: var(--purple);
+      background-color: rgba(75, 0, 130, 0.9);
       color: var(--gold);
       padding: 14px 0;
-      margin-top: 40px;
+      margin-top: 50px;
+      position: relative;
+      z-index: 2;
     }
 
     footer p {
@@ -117,57 +168,25 @@
       font-size: 0.9rem;
     }
 
-    /* ICONS */
-    .icon {
-      font-size: 1.1rem;
-    }
-
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
       }
     }
-
-    /* --- Background Slideshow Styles --- */
-.slideshow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.slideshow img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(6px) brightness(70%);
-  opacity: 0;
-  animation: slideShow 15s infinite;
-}
-
-.slideshow img:nth-child(1) { animation-delay: 0s; }
-.slideshow img:nth-child(2) { animation-delay: 5s; }
-.slideshow img:nth-child(3) { animation-delay: 10s; }
-
-@keyframes slideShow {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  30% { opacity: 1; }
-  40% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
   </style>
 
-  <!-- Font Awesome for Icons -->
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <!-- Slideshow Behind Everything -->
+  <div class="slideshow">
+    <img src="images/bg1.jpg" alt="Background 1">
+    <img src="images/bg2.jpg" alt="Background 2">
+    <img src="images/bg3.jpg" alt="Background 3">
+  </div>
+
   <header>
     <h1>Batshoeneng Foundation</h1>
     <nav>
@@ -176,15 +195,8 @@
       <a href="projects.html"><i class="fas fa-hand-holding-heart icon"></i> Projects</a>
       <a href="get-involved.html"><i class="fas fa-hands-helping icon"></i> Get Involved</a>
       <a href="contact.html"><i class="fas fa-envelope icon"></i> Contact</a>
-      <a href="payment.html"><i class="fas fa-hand-holding-heart"></i></a>
+      <a href="payment.html"><i class="fas fa-donate"></i> Donate</a>
     </nav>
-
-      <div class="slideshow">
-    <img src="images/bg1.jpg" alt="Background 1">
-    <img src="images/bg2.jpg" alt="Background 2">
-    <img src="images/bg3.jpg" alt="Background 3">
-  </div>
-
   </header>
 
   <main>
@@ -193,19 +205,19 @@
 
     <div class="projects-grid">
       <div class="project-card">
-        <img src="project1.jpg" alt="Youth Empowerment Program">
+        <img src="images/project1.jpg" alt="Youth Empowerment Program">
         <h3>Youth Empowerment Program</h3>
         <p>Training and mentorship opportunities designed to prepare young people for careers in tech and leadership.</p>
       </div>
 
       <div class="project-card">
-        <img src="project2.jpg" alt="Community Upliftment">
+        <img src="images/project2.jpg" alt="Community Upliftment">
         <h3>Community Upliftment</h3>
         <p>Developing sustainable solutions in rural areas through education, skills development, and access to resources.</p>
       </div>
 
       <div class="project-card">
-        <img src="project3.jpg" alt="Health Awareness Drive">
+        <img src="images/project3.jpg" alt="Health Awareness Drive">
         <h3>Health Awareness Drive</h3>
         <p>Campaigns that promote wellness, disease prevention, and access to healthcare information for all ages.</p>
       </div>
@@ -221,3 +233,4 @@
   </script>
 </body>
 </html>
+
