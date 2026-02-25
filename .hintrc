@@ -15,13 +15,15 @@
     "axe/forms": [
       "default",
       {
-        "label": "off"
+        "label": "off",
+        "select-name": "off"
       }
     ],
     "axe/text-alternatives": [
       "default",
       {
-        "frame-title": "off"
+        "frame-title": "off",
+        "image-alt": "off"
       }
     ]
   }
