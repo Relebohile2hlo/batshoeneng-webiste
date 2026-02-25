@@ -1,282 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Complete Your Donation — Batshoeneng Foundation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Your Donation — Batshoeneng Foundation</title>
 
-  <style>
-    /* ---------- GLOBAL STYLE ---------- */
-    body {
-      font-family: 'Poppins', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      background: linear-gradient(to right, #2b006b, #4b0082);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    .container {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      padding: 40px 50px;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      text-align: center;
-      width: 90%;
-      max-width: 480px;
-      z-index: 2;
-    }
+<style>
 
-    h2 {
-      color: #FFD700;
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  color: #2b006b;
+}
 
-    p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 25px;
-      color: #f2f2f2;
-    }
+/* ===== SLIDESHOW BACKGROUND ===== */
+.slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
 
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 18px;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
-      outline: none;
-      background: rgba(255,255,255,0.9);
-      color: #2b006b;
-    }
+.slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fade 18s infinite;
+  opacity: 0;
+}
 
-    input::placeholder {
-      color: #666;
-    }
+.slideshow img:nth-child(1) { animation-delay: 0s; }
+.slideshow img:nth-child(2) { animation-delay: 6s; }
+.slideshow img:nth-child(3) { animation-delay: 12s; }
 
-    button {
-      width: 100%;
-      padding: 14px;
-      background-color: #FFD700;
-      color: #2b006b;
-      border: none;
-      border-radius: 10px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
+@keyframes fade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
 
-    button:hover {
-      background-color: #e5c100;
-      transform: scale(1.03);
-    }
+/* Soft royal overlay */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(75,0,130,0.75), rgba(43,0,107,0.75));
+  z-index: -1;
+}
 
-    .back-link {
-      display: inline-block;
-      color: #FFD700;
-      margin-top: 18px;
-      text-decoration: none;
-      font-weight: 500;
-    }
+/* ===== CONTAINER ===== */
+.container {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 45px 55px;
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  width: 90%;
+  max-width: 520px;
+  position: relative;
+}
 
-    .back-link:hover {
-      text-decoration: underline;
-    }
+h2 {
+  color: #4b0082;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 
-    footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      color: #FFD700;
-      font-size: 14px;
-    }
+p {
+  font-size: 15px;
+  margin-bottom: 25px;
+  color: #444;
+}
 
-    /* ---------- MODAL ---------- */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 5;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 18px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #f9f9ff;
+  color: #2b006b;
+  transition: 0.3s;
+}
 
-    .modal-content {
-      background-color: rgba(47, 0, 79, 0.95);
-      margin: 10% auto;
-      padding: 30px;
-      border-radius: 20px;
-      width: 90%;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-      color: #FFD700;
-    }
+input:focus, select:focus {
+  border-color: #4b0082;
+  background: white;
+}
 
-    .close {
-      color: #FFD700;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(45deg, #FFD700, #ffcc00);
+  color: #4b0082;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-    .close:hover {
-      color: white;
-    }
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255,215,0,0.6);
+}
 
-    .paypal-btn {
-      margin-top: 20px;
-    }
+.back-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: #4b0082;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-    /* ---------- BANK DETAILS BOX ---------- */
-    .bank-details {
-      display: none;
-      background-color: rgba(47, 0, 79, 0.95);
-      border: 2px solid #FFD700;
-      border-radius: 15px;
-      padding: 20px;
-      margin-top: 25px;
-      color: #FFD700;
-      text-align: left;
-    }
+.back-link:hover {
+  color: #FFD700;
+}
 
-    .bank-details h3 {
-      text-align: center;
-      color: #FFD700;
-      margin-top: 0;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
+/* ===== BANK DETAILS ===== */
+.bank-details {
+  display: none;
+  background: #4b0082;
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
 
-    .bank-details p {
-      margin: 6px 0;
-      color: #f2f2f2;
-      font-size: 15px;
-    }
+.bank-details h3 {
+  text-align: center;
+  color: gold;
+}
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 30px 25px;
-      }
-      h2 {
-        font-size: 22px;
-      }
-    }
-  </style>
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 12% auto;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  color: #4b0082;
+}
+
+.close {
+  float: right;
+  font-size: 26px;
+  cursor: pointer;
+  color: #4b0082;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 30px;
+  }
+}
+
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <h2>Complete Your Donation</h2>
-    <p>Thank you for supporting <strong>Batshoeneng Foundation</strong> 💛<br>
-      Your generosity helps us uplift youth, empower communities, and create lasting change.</p>
 
-    <form id="donationForm">
-      <input type="number" name="amount" id="donationAmount" placeholder="Enter Amount (R)" required />
-      <select name="payment-method" id="paymentMethod" required>
-        <option value="">Select Payment Method</option>
-        <option value="bank">Bank Transfer (South Africa)</option>
-        <option value="paypal">PayPal (International)</option>
-      </select>
+<!-- SLIDESHOW -->
+<div class="slideshow">
+  <img src="donation1.jpg">
+  <img src="donation2.jpg">
+  <img src="donation3.jpg">
+</div>
 
-      <button type="button" onclick="processDonation()">Proceed to Payment</button>
-    </form>
+<div class="overlay"></div>
 
-    <!-- BANK DETAILS BOX -->
-    <div class="bank-details" id="bankDetails">
-      <h3>Bank Transfer Details</h3>
-      <p><strong>🏦 Account Name:</strong> Batshoeneng Foundation</p>
-      <p><strong>🏛️ Bank:</strong> Standard Bank</p>
-      <p><strong>💳 Account Number:</strong> 123 456 789</p>
-      <p><strong>🏷️ Branch Code:</strong> 051001</p>
-      <p><strong>📘 Reference:</strong> Your Name + Donation</p>
-      <p style="text-align:center; margin-top:12px;">Thank you for your support 💛</p>
-    </div>
+<div class="container">
+  <h2>Complete Your Donation</h2>
+  <p>
+    Your generosity helps us empower youth and uplift communities 💛
+  </p>
 
-    <a class="back-link" href="donate.html">← Back to Donate Page</a>
+  <form id="donationForm">
+    <input type="number" id="donationAmount" placeholder="Enter Amount (R)" required />
+    <select id="paymentMethod" required>
+      <option value="">Select Payment Method</option>
+      <option value="bank">Bank Transfer (South Africa)</option>
+      <option value="paypal">PayPal (International)</option>
+    </select>
+
+    <button type="button" onclick="processDonation()">Proceed to Payment</button>
+  </form>
+
+  <div class="bank-details" id="bankDetails">
+    <h3>Bank Transfer Details</h3>
+    <p><strong>Account Name:</strong> Batshoeneng Foundation</p>
+    <p><strong>Bank:</strong> Standard Bank</p>
+    <p><strong>Account Number:</strong> 123 456 789</p>
+    <p><strong>Branch Code:</strong> 051001</p>
   </div>
 
-  <!-- ---------- MODAL STRUCTURE ---------- -->
-  <div id="paypalModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h3>Donate via PayPal</h3>
-      <p>Securely donate through PayPal using your account or card 💳</p>
-      <div class="paypal-btn">
-        <form action="https://www.paypal.com/donate" method="post" target="_top">
-          <!-- Replace this ID with your real PayPal hosted button ID -->
-          <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID_HERE" />
-          <input type="hidden" name="currency_code" value="ZAR" />
-          <input type="image"
-            src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-            border="0"
-            name="submit"
-            title="Donate with PayPal"
-            alt="Donate with PayPal button" />
-          <img alt="" border="0"
-            src="https://www.paypal.com/en_ZA/i/scr/pixel.gif" width="1" height="1" />
-        </form>
-      </div>
-    </div>
-  </div>
+  <a class="back-link" href="home.html">← Back to Home</a>
+</div>
 
-  <footer>
-    © 2025 Batshoeneng Foundation
-  </footer>
+<footer>
+  © 2026 Batshoeneng Foundation
+</footer>
 
-  <script>
-    function processDonation() {
-      const method = document.getElementById("paymentMethod").value;
-      const amount = document.getElementById("donationAmount").value;
-      const bankBox = document.getElementById("bankDetails");
+<script>
+function processDonation() {
+  const method = document.getElementById("paymentMethod").value;
+  const amount = document.getElementById("donationAmount").value;
+  const bankBox = document.getElementById("bankDetails");
 
-      // Reset bank box display
-      bankBox.style.display = "none";
+  bankBox.style.display = "none";
 
-      if (!amount || amount <= 0) {
-        alert("Please enter a valid donation amount.");
-        return;
-      }
+  if (!amount || amount <= 0) {
+    alert("Please enter a valid donation amount.");
+    return;
+  }
 
-      if (method === "paypal") {
-        openModal();
-      } 
-      else if (method === "bank") {
-        bankBox.style.display = "block";
-        bankBox.scrollIntoView({ behavior: "smooth" });
-      } 
-      else {
-        alert("Please select a payment method.");
-      }
-    }
+  if (method === "bank") {
+    bankBox.style.display = "block";
+  } else if (method === "paypal") {
+    alert("Redirecting to PayPal...");
+  } else {
+    alert("Please select a payment method.");
+  }
+}
+</script>
 
-    function openModal() {
-      document.getElementById("paypalModal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("paypalModal").style.display = "none";
-    }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-      const modal = document.getElementById("paypalModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
 </body>
 </html>
