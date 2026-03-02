@@ -1,302 +1,421 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About Us — Batshoeneng Foundation</title>
-  <style>
-    :root {
-      --purple: #4b0082;
-      --gold: #d4af37;
-      --light-bg: #faf8ff;
-      --text: #1a1a1a;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About Us — Batshoeneng Foundation</title>
 
-    body {
-      font-family: Inter, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--light-bg);
-      color: var(--text);
-    }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-    header {
-      background: linear-gradient(90deg, var(--purple), #6a0dad);
-      color: white;
-      text-align: center;
-      padding: 18px 0;
-    }
+<style>
+:root {
+  --purple: #4b0082;
+  --gold: #d4af37;
+  --light-bg: #f6f2ff;
+  --text: #1a1a1a;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--light-bg);
+  color: var(--text);
+}
 
-    /* Sidepanel styles */
-    .sidepanel {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 2;
-      top: 0;
-      left: 0;
-      background-color: var(--purple);
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
-    }
+/* HEADER */
+header {
+  background: linear-gradient(90deg, var(--purple), #6a0dad);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
 
-    .sidepanel a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 18px;
-      color: var(--gold);
-      display: block;
-      transition: 0.3s;
-    }
+header h1 {
+  margin: 0;
+}
 
-    .sidepanel a:hover {
-      background-color: rgba(255,255,255,0.1);
-      color: white;
-    }
+/* SIDEPANEL */
+.sidepanel {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: var(--purple);
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 60px;
+}
 
-    .sidepanel .closebtn {
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      font-size: 36px;
-    }
+.sidepanel a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--gold);
+  display: block;
+}
 
-    .openbtn {
-      font-size: 18px;
-      cursor: pointer;
-      background-color: var(--purple);
-      color: var(--gold);
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      margin: 16px;
-    }
+.sidepanel a:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
 
-    .openbtn:hover {
-      background-color: #5b0da3;
-    }
+.sidepanel .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 36px;
+}
 
-    /* About Section */
-    .about-section {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: var(--gold);
-      color: var(--purple);
-      border-radius: 0 0 20px 20px;
-    }
+.openbtn {
+  font-size: 18px;
+  cursor: pointer;
+  background-color: var(--purple);
+  color: var(--gold);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  margin: 16px;
+}
 
-    .about-section h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+/* ABOUT */
+.about-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--gold);
+  color: var(--purple);
+  border-radius: 0 0 30px 30px;
+}
 
-    .about-section p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-      font-size: 1.1rem;
-    }
+/* MISSION & VISION */
+.mission-vision {
+  padding: 70px 20px;
+  background: white;
+}
 
-    /* Team Section */
-    h2 {
-      text-align: center;
-      margin-top: 40px;
-      color: var(--purple);
-    }
+.mv-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin: 30px auto;
-      max-width: 1000px;
-      padding: 0 16px;
-    }
+.mv-box {
+  flex: 1 1 450px;
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  background: rgba(75,0,130,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
 
-    .column {
-      flex: 1 1 280px;
-      max-width: 300px;
-    }
+.mv-box:hover {
+  transform: translateY(-8px);
+}
 
-    .card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s;
-    }
+.mv-box h2 {
+  color: var(--purple);
+  margin-bottom: 15px;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+/* TEAM */
+.team-heading {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 2rem;
+  color: var(--purple);
+}
 
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
 
-    .container {
-      padding: 16px;
-    }
+.column {
+  flex: 1 1 260px;
+  max-width: 280px;
+  display: flex;
+}
 
-    .title {
-      color: var(--gold);
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+.card {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s;
+}
 
-    .button {
-      background-color: var(--purple);
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
 
-    .button:hover {
-      background-color: #5b0da3;
-    }
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
 
-    footer {
-      text-align: center;
-      background-color: var(--purple);
-      color: var(--gold);
-      padding: 14px 0;
-      margin-top: 40px;
-    }
+.container {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    footer p {
-      margin: 0;
-    }
+.title {
+  color: var(--gold);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    @media (max-width: 700px) {
-      .row {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+.social-icons {
+  margin: 15px 0;
+}
+
+.social-icons a {
+  color: var(--purple);
+  margin: 0 8px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--gold);
+}
+
+.button {
+  background: var(--purple);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #5b0da3;
+}
+
+/* DONATE */
+.donate-highlight {
+  background: linear-gradient(90deg, var(--purple), #6a0dad);
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.donate-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: var(--gold);
+  color: var(--purple);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.donate-link:hover {
+  background: white;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: var(--purple);
+  color: var(--gold);
+  padding: 20px;
+}
+
+@media(max-width:768px){
+  .mv-container{
+    flex-direction: column;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>About Us</h1>
-  </header>
 
-  <!-- Collapsible Sidebar -->
-  <div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="get-involved.html">Get Involved</a>
-    <a href="contact.html">Contact</a>
-    <a href="payment.html">Donate</a>
-  </div>
+<header>
+<h1>About Us</h1>
+</header>
 
-  <button class="openbtn" onclick="openNav()">☰ Menu</button>
+<button class="openbtn" onclick="openNav()">☰ Menu</button>
 
-  <!-- About Content -->
-  <div class="about-section">
-    <h1>Batshoeneng Foundation</h1>
-    <p>We are a youth-led foundation committed to empowering communities through education, innovation, and service. Our work bridges hope and opportunity, inspiring a generation to lead with purpose and integrity.</p>
-  </div>
+<div id="mySidepanel" class="sidepanel">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<a href="home.html">Home</a>
+<a href="about.html">About</a>
+<a href="projects.html">Projects</a>
+<a href="get-involved.html">Get Involved</a>
+<a href="contact.html">Contact</a>
+<a href="payment.html">Donate</a>
+</div>
 
-  <h2>Our Team</h2>
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <img src="team1.jpg" alt="Jane Doe">
-        <div class="container">
-          <h2>Lebohang Thuhlo</h2>
-          <p class="title">Chairperson & Founder</p>
-          <p>Leading Batshoeneng with vision and compassion, she ensures our programs create real change.</p>
-          <p>lebohang2hlo@gmail.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
+<div class="about-section">
+<h1>Batshoeneng Foundation</h1>
+<p>We are a youth-led foundation committed to empowering communities through education, innovation, and service.</p>
+</div>
 
-    <div class="column">
-      <div class="card">
-        <img src="team2.jpg" alt="Mike Ross">
-        <div class="container">
-          <h2>Siena Motloung</h2>
-          <p class="title">Deputy Chairperson</p>
-          <p>Overseeing youth and community initiatives to ensure long-term sustainability and impact.</p>
-          <p>mike@batshoeneng.org</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
+<section class="mission-vision">
+<div class="mv-container">
+<div class="mv-box">
+<h2>Our Mission</h2>
+<p>Building family structure, preserving culture and customs and skills development.</p>
+</div>
 
-    <div class="column">
-      <div class="card">
-        <img src="team3.jpg" alt="John Doe">
-        <div class="container">
-          <h2>Pontsho Modise</h2>
-          <p class="title">Admin Officer</p>
-          <p>Building awareness and amplifying Batshoeneng’s story across platforms and communities.</p>
-          <p>john@batshoeneng.org</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <div src="team4.jpg" alt="John Doe">
-        <div class="container">
-          <h2>Moleboheng Lekhesi</h2>
-          <p class="title">Secretary</p>
-          <p>john@batshoeneng.org</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Donate Section -->
-<section class="donate-highlight">
-  <div class="donate-container">
-    <div class="donate-text">
-      <h2>Support Batshoeneng Foundation</h2>
-      <p>
-        Every donation helps us empower communities, uplift youth, and create lasting impact.
-        Together, we can build a brighter future for those who need it most.
-      </p>
-      <a href="payment.html" class="donate-link">Donate Now 💛</a>
-    </div>
-  </div>
+<div class="mv-box">
+<h2>Our Vision</h2>
+<p>We are committed to development of commmunities in ruarl areas, determined to change the status quo.</p>
+</div>
+</div>
 </section>
 
+<h2 class="team-heading">Meet Our Team</h2>
 
-  <footer>
-    <p>© <span id="year"></span> Batshoeneng Foundation</p>
-  </footer>
+<div class="row">
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<!-- TEAM MEMBER TEMPLATE -->
+<div class="column">
+<div class="card">
+<img src="team1.jpg" alt="">
+<div class="container">
+<div>
+<h3>Lebohang Thuhlo</h3>
+<p class="title">Chairperson & Founder</p>
+<p>Leading Batshoeneng with vision and compassion.</p>
+</div>
+<div>
+<div class="social-icons">
+  <a href="https://www.facebook.com/YOURUSERNAME" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/YOURUSERNAME" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/YOURNUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+<button class="button">Contact</button>
+</div>
+</div>
+</div>
+</div>
 
-    function openNav() {
-      document.getElementById("mySidepanel").style.width = "250px";
-    }
+<div class="column">
+<div class="card">
+<img src="team1.jpg" alt="">
+<div class="container">
+<div>
+<h3>Siena Motloung</h3>
+<p class="title">Deputy Chairperson</p>
+<p>Leading Batshoeneng with vision and compassion.</p>
+</div>
+<div>
+<div class="social-icons">
+  <a href="https://www.facebook.com/YOURUSERNAME" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/YOURUSERNAME" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/YOURNUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+<button class="button">Contact</button>
+</div>
+</div>
+</div>
+</div>
 
-    function closeNav() {
-      document.getElementById("mySidepanel").style.width = "0";
-    }
-  </script>
+<div class="column">
+<div class="card">
+<img src="team1.jpg" alt="">
+<div class="container">
+<div>
+<h3>Pontsho Molise</h3>
+<p class="title">Admin Officer</p>
+<p>Leading Batshoeneng with vision and compassion.</p>
+</div>
+<div>
+<div class="social-icons">
+  <a href="https://www.facebook.com/YOURUSERNAME" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/YOURUSERNAME" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/YOURNUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+<button class="button">Contact</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="column">
+<div class="card">
+<img src="team1.jpg" alt="">
+<div class="container">
+<div>
+<h3>Moleboheng Lekhesi</h3>
+<p class="title">Secretary</p>
+<p>Leading Batshoeneng with vision and compassion.</p>
+</div>
+<div>
+<div class="social-icons">
+  <a href="https://www.facebook.com/YOURUSERNAME" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/YOURUSERNAME" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/YOURNUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>>
+<button class="button">Contact</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="column">
+<div class="card">
+<img src="team1.jpg" alt="">
+<div class="container">
+<div>
+<h3>Relebohile Thuhlo</h3>
+<p class="title">Finance Officer</p>
+<p>Leading Batshoeneng with vision and compassion.</p>
+</div>
+<div>
+<div class="social-icons">
+  <a href="https://www.facebook.com/YOURUSERNAME" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/YOURUSERNAME" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/YOURNUMBER" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+<button class="button">Contact</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- COPY THIS BLOCK FOR MORE MEMBERS -->
+
+</div>
+
+<section class="donate-highlight">
+<h2>Support Batshoeneng Foundation</h2>
+<p>Every donation helps us uplift communities and empower youth.</p>
+<a href="payment.html" class="donate-link">Donate Now 💛</a>
+</section>
+
+<footer>
+<p>© <span id="year"></span> Batshoeneng Foundation</p>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+function openNav(){document.getElementById("mySidepanel").style.width="250px";}
+function closeNav(){document.getElementById("mySidepanel").style.width="0";}
+</script>
+
 </body>
 </html>

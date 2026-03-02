@@ -9,131 +9,180 @@
 
 <style>
 
+/* ===== ROOT COLORS ===== */
+:root{
+    --purple:#4b0082;
+    --royal:#6a0dad;
+    --gold:#d4af37;
+    --light:#f4efff;
+}
+
 /* ===== GLOBAL ===== */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f8f9fc;
-    color: #222;
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(180deg,#f6f2ff,#ffffff);
+    color:#222;
 }
 
 /* ===== NAVBAR ===== */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 20px;
-    color: #5a0ea1;
+.navbar nav a{
+    margin-left:25px;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
 }
 
-.nav-links a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: 0.3s;
+.navbar nav a:hover{
+    color:var(--royal);
 }
 
-.nav-links a:hover {
-    color: #5a0ea1;
-}
-
-.donate-btn {
-    background: #5a0ea1;
-    color: white !important;
-    padding: 8px 18px;
-    border-radius: 20px;
+.navbar nav a:last-child{
+    background:var(--royal);
+    color:white;
+    padding:8px 18px;
+    border-radius:20px;
 }
 
 /* ===== HERO ===== */
-.hero {
-    padding: 70px 10%;
-    text-align: center;
+.hero{
+    padding:90px 10%;
+    text-align:center;
+    background:linear-gradient(135deg,var(--purple),var(--royal));
+    color:white;
 }
 
-.hero h1 {
-    font-size: 38px;
-    color: #5a0ea1;
+.hero h1{
+    font-size:42px;
+    margin-bottom:20px;
 }
 
-.hero p {
-    max-width: 700px;
-    margin: 20px auto 0;
-    color: #555;
+.hero p{
+    max-width:750px;
+    margin:auto;
+    font-weight:300;
+    line-height:1.6;
 }
 
-/* ===== ACCORDION SECTION ===== */
-.get-involved {
-    padding: 60px 10%;
+/* ===== GET INVOLVED SECTION ===== */
+.get-involved{
+    padding:80px 10%;
+    background:var(--light);
 }
 
-.get-involved h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 28px;
+.get-involved h2{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:30px;
+    color:var(--purple);
 }
 
-.accordion-item {
-    margin-bottom: 20px;
-    border-radius: 14px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
+/* ===== ACCORDION ===== */
+.accordion-item{
+    margin-bottom:25px;
+    border-radius:18px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 25px rgba(75,0,130,0.08);
+    transition:0.4s;
 }
 
-.accordion-header {
-    width: 100%;
-    padding: 22px;
-    background: white;
-    border: none;
-    text-align: left;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.accordion-item:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 40px rgba(75,0,130,0.15);
 }
 
-.accordion-header:hover {
-    background: #f3f0ff;
-    color: #5a0ea1;
+.accordion-header{
+    width:100%;
+    padding:25px;
+    background:transparent;
+    border:none;
+    text-align:left;
+    font-size:19px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.3s;
 }
 
-.accordion-header span {
-    font-size: 20px;
-    transition: 0.3s;
+.accordion-header:hover{
+    color:var(--royal);
 }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0 22px;
+.accordion-header span{
+    font-size:22px;
+    font-weight:bold;
+    color:var(--royal);
 }
 
-.accordion-content p {
-    padding: 20px 0;
-    color: #555;
+.accordion-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+    padding:0 25px;
+}
+
+.accordion-content p{
+    padding:20px 0;
+    color:#444;
+    line-height:1.6;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section{
+    padding:80px 10%;
+    text-align:center;
+    background:linear-gradient(135deg,var(--royal),var(--purple));
+    color:white;
+}
+
+.cta-section h2{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.cta-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 30px;
+    background:var(--gold);
+    color:var(--purple);
+    border-radius:30px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.cta-btn:hover{
+    background:white;
 }
 
 /* ===== FOOTER ===== */
-.footer {
-    text-align: center;
-    padding: 30px;
-    background: white;
-    margin-top: 60px;
-    font-size: 14px;
-    color: #777;
+.footer{
+    text-align:center;
+    padding:30px;
+    background:white;
+    font-size:14px;
+    color:#666;
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:32px;
+    }
 }
 
 </style>
@@ -142,7 +191,7 @@ body {
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
+<div class="navbar">
    <nav>
       <a href="home.html">Home</a>
       <a href="about.html">About</a>
@@ -150,20 +199,23 @@ body {
       <a href="get-involved.html">Get Involved</a>
       <a href="contact.html">Contact</a>
       <a href="payment.html">Donate</a>
-    </nav>
-</nav>
+   </nav>
+</div>
 
 <!-- HERO -->
 <section class="hero">
     <h1>Get Involved</h1>
     <p>
-        Join Batshoeneng Foundation in empowering youth, uplifting communities, 
-        and creating lasting change. Your support, skills, and time can make a real difference.
+        Join Batshoeneng Foundation in empowering youth, uplifting communities,
+        and creating lasting transformation. Your support, skills, and time
+        can create powerful impact.
     </p>
 </section>
 
-<!-- ACCORDION -->
+<!-- ACCORDION SECTION -->
 <section class="get-involved">
+
+    <h2>Ways You Can Make a Difference</h2>
 
     <div class="accordion-item">
         <button class="accordion-header">
@@ -172,8 +224,8 @@ body {
         </button>
         <div class="accordion-content">
             <p>
-                Be part of our mission by volunteering in outreach programs, mentorship initiatives,
-                and youth empowerment projects. Your time and commitment help build stronger communities.
+                Participate in outreach programs, mentorship initiatives, and youth empowerment projects.
+                Your time helps build stronger and more resilient communities.
             </p>
         </div>
     </div>
@@ -185,8 +237,8 @@ body {
         </button>
         <div class="accordion-content">
             <p>
-                We collaborate with schools, community leaders, and businesses to drive 
-                sustainable development and innovation in underprivileged areas.
+                Collaborate with us to expand impact through schools, local leaders,
+                and corporate partnerships focused on sustainable development.
             </p>
         </div>
     </div>
@@ -198,12 +250,19 @@ body {
         </button>
         <div class="accordion-content">
             <p>
-                Use your expertise — whether in teaching, health, business, or technical fields — 
-                to help shape brighter futures and expand opportunities for youth.
+                Share your professional skills in education, business, health,
+                or technology to empower the next generation.
             </p>
         </div>
     </div>
 
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta-section">
+    <h2>Ready to Join the Movement?</h2>
+    <p>Together we build purpose-driven communities.</p>
+    <a href="contact.html" class="cta-btn">Get Started Today</a>
 </section>
 
 <!-- FOOTER -->
@@ -212,29 +271,25 @@ body {
 </div>
 
 <script>
-const headers = document.querySelectorAll(".accordion-header");
-
-headers.forEach(header => {
-    header.addEventListener("click", () => {
-        const content = header.nextElementSibling;
-        const icon = header.querySelector("span");
-
-        document.querySelectorAll(".accordion-content").forEach(c => {
-            if (c !== content) c.style.maxHeight = null;
-        });
-
-        document.querySelectorAll(".accordion-header span").forEach(i => {
-            if (i !== icon) i.textContent = "+";
-        });
-
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            icon.textContent = "+";
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            icon.textContent = "−";
-        }
-    });
+const headers=document.querySelectorAll(".accordion-header");
+headers.forEach(header=>{
+header.addEventListener("click",()=>{
+const content=header.nextElementSibling;
+const icon=header.querySelector("span");
+document.querySelectorAll(".accordion-content").forEach(c=>{
+if(c!==content)c.style.maxHeight=null;
+});
+document.querySelectorAll(".accordion-header span").forEach(i=>{
+if(i!==icon)i.textContent="+";
+});
+if(content.style.maxHeight){
+content.style.maxHeight=null;
+icon.textContent="+";
+}else{
+content.style.maxHeight=content.scrollHeight+"px";
+icon.textContent="−";
+}
+});
 });
 </script>
 
