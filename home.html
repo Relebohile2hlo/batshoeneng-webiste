@@ -1,12 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Batshoeneng — Home</title>
+  <title>Batshoeneng - Home</title>
 
   <style>
-    /* --- Color theme --- */
     :root {
       --purple: #4b0082;
       --gold: #e5c100;
@@ -23,7 +22,6 @@
       position: relative;
     }
 
-    /* --- Slideshow background --- */
     .slideshow {
       position: fixed;
       top: 0; left: 0;
@@ -45,7 +43,6 @@
       opacity: 1;
     }
 
-    /* --- Blur overlay --- */
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -55,48 +52,53 @@
       z-index: 1;
     }
 
-    /* --- Header / Navbar --- */
     header {
       position: relative;
       z-index: 3;
-      background: rgba(75, 0, 130, 0.85);
-      backdrop-filter: blur(3px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      color: gold;
+      text-align: center;
+      padding: 100px 20px;
+      overflow: hidden;
+      border-bottom: 4px solid gold;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 24px;
-      flex-wrap: wrap;
+    .header-bg {
+      background: url('images/batshoeneng-logo.png') center/cover no-repeat;
+      filter: blur(12px) brightness(0.7);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
     }
 
-    .brand {
-      font-weight: bold;
-      color: var(--gold);
-      font-size: 1.3rem;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(75,0,130,0.9), rgba(106,13,173,0.8));
+      z-index: 1;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .nav-links a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: 0.3s;
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
     }
 
-    .nav-links a:hover {
-      color: var(--gold);
-      transform: translateY(-2px);
+    header p {
+      font-size: 1.2em;
+      color: #fff4b2;
     }
 
-    /* --- Hero Content --- */
     .hero {
       position: relative;
       z-index: 2;
@@ -148,7 +150,6 @@
       transform: scale(1.05);
     }
 
-    /* --- Cards Section --- */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -181,6 +182,30 @@
       margin-bottom: 8px;
     }
 
+    .donate-highlight {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      margin: 20px auto 40px;
+      padding: 30px 20px;
+      border-radius: 16px;
+      background: rgba(75, 0, 130, 0.65);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      text-align: center;
+    }
+
+    .donate-link {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 20px;
+      border-radius: 24px;
+      text-decoration: none;
+      font-weight: 700;
+      background: var(--gold);
+      color: var(--purple);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -191,158 +216,88 @@
       z-index: 3;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      header {
+        padding: 70px 15px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      header p {
+        font-size: 1em;
+      }
+
       .hero h1 {
         font-size: 2rem;
-      }
-      .nav-links {
-        gap: 12px;
-        justify-content: center;
-        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Background slideshow -->
   <div class="slideshow">
     <img src="images/IMG-20251020-WA0040.jpg" class="active" alt="Community 1">
     <img src="images/IMG-20251020-WA0028.jpg" alt="Community 2">
     <img src="images/IMG-20251020-WA0007.jpg" alt="Community 3">
   </div>
 
-  <!-- Purple overlay -->
   <div class="overlay"></div>
 
-  <!-- Navbar -->
   <header>
-  <div class="header-bg"></div>
+    <div class="header-bg"></div>
+    <div class="header-content">
+      <h1>Welcome to Batshoeneng Foundation</h1>
+      <p>Empowering communities through education, youth development, and social impact. Together we build a brighter future for all.</p>
+    </div>
+  </header>
 
-  <div class="header-content">
-    <h1>Welcome to Batshoeneng Foundation</h1>
-    <p>Empowering communities through education, youth development, and social impact. Together we build a brighter future for all.</p>
-  </div>
-</header>
-
-<style>
-  header {
-    position: relative;
-    color: gold;
-    text-align: center;
-    padding: 100px 20px;
-    overflow: hidden;
-    border-bottom: 4px solid gold;
-  }
-
-  /* 🔹 Background image with blur overlay */
-  .header-bg {
-    background: url('images/batshoeneng-logo.png') center/cover no-repeat;
-    filter: blur(12px) brightness(0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-  }
-
-  /* Dark gradient overlay for better text contrast */
-  header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(75,0,130,0.9), rgba(106,13,173,0.8));
-    z-index: 1;
-  }
-
-  .header-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  header h1 {
-    font-size: 2.8em;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
-  }
-
-  header p {
-    font-size: 1.2em;
-    color: #fff4b2;
-  }
-
-  @media (max-width: 768px) {
-    header {
-      padding: 70px 15px;
-    }
-
-    header h1 {
-      font-size: 2em;
-    }
-
-    header p {
-      font-size: 1em;
-    }
-  }
-</style>
-
-
-  <!-- Hero -->
   <section class="hero">
     <h1>Empowering Communities with Purpose</h1>
     <p>At Batshoeneng Foundation, we build programs that uplift youth, strengthen families, and restore hope. Join us in creating meaningful change in our communities.</p>
     <div class="buttons">
       <a href="get-involved.html" class="btn primary">Get Involved</a>
       <a href="projects.html" class="btn secondary">View Projects</a>
+      <a href="programs.html" class="btn secondary">View Programs</a>
     </div>
   </section>
 
-  <!-- Quick Links -->
   <section class="grid">
     <div class="card">
       <h3>About Us</h3>
-      <p>Discover who we are and what drives our mission. <a href="about.html" style="color:gold;">Read more →</a></p>
+      <p>Discover who we are and what drives our mission. <a href="about.html" style="color:gold;">Read more</a></p>
     </div>
     <div class="card">
       <h3>Our Projects</h3>
-      <p>See how we impact lives through innovative community projects. <a href="projects.html" style="color:gold;">Explore →</a></p>
+      <p>See how we impact lives through innovative community projects. <a href="projects.html" style="color:gold;">Explore</a></p>
+    </div>
+    <div class="card">
+      <h3>Programs</h3>
+      <p>Browse categorized programs and reveal full details from each photo. <a href="programs.html" style="color:gold;">View programs</a></p>
     </div>
     <div class="card">
       <h3>Get Involved</h3>
-      <p>Partner, volunteer, or donate to make a difference. <a href="get-involved.html" style="color:gold;">Join us →</a></p>
+      <p>Partner, volunteer, or donate to make a difference. <a href="get-involved.html" style="color:gold;">Join us</a></p>
     </div>
     <div class="card">
       <h3>Contact</h3>
-      <p>Reach out with questions or collaboration ideas. <a href="contact.html" style="color:gold;">Connect →</a></p>
+      <p>Reach out with questions or collaboration ideas. <a href="contact.html" style="color:gold;">Connect</a></p>
     </div>
   </section>
 
-  <!-- Donate Section -->
-<section class="donate-highlight">
-  <div class="donate-container">
-    <div class="donate-text">
-      <h2>Support Batshoeneng Foundation</h2>
-      <p>
-        Every donation helps us empower communities, uplift youth, and create lasting impact.
-        Together, we can build a brighter future for those who need it most.
-      </p>
-      <a href="payment.html" class="donate-link">Donate Now 💛</a>
-    </div>
-  </div>
-</section>
-
+  <section class="donate-highlight">
+    <h2>Support Batshoeneng Foundation</h2>
+    <p>Every donation helps us empower communities, uplift youth, and create lasting impact. Together, we can build a brighter future for those who need it most.</p>
+    <a href="payment.html" class="donate-link">Donate Now</a>
+  </section>
 
   <footer>
-    <p>© <span id="year"></span> Batshoeneng Foundation</p>
+    <p>Copyright <span id="year"></span> Batshoeneng Foundation</p>
   </footer>
 
   <script>
-    // Year auto update
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Background slideshow logic
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
 
@@ -354,5 +309,3 @@
   </script>
 </body>
 </html>
-
-

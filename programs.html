@@ -1,0 +1,369 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programs - Batshoeneng Foundation</title>
+  <style>
+    :root {
+      --purple: #4b0082;
+      --royal: #6a0dad;
+      --gold: #d4af37;
+      --paper: #f7f3ff;
+      --text: #1f1f1f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.2), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(75, 0, 130, 0.18), transparent 40%),
+        var(--paper);
+    }
+
+    .page-header {
+      background: linear-gradient(120deg, var(--purple), var(--royal));
+      color: #fff;
+      padding: 28px 18px 22px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .page-header h1 {
+      margin: 0;
+      text-align: center;
+      color: var(--gold);
+      letter-spacing: 0.4px;
+    }
+
+    nav {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--gold);
+      outline: none;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 18px 60px;
+    }
+
+    .intro {
+      max-width: 860px;
+      margin: 0 auto 34px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .category {
+      margin-top: 26px;
+      margin-bottom: 26px;
+    }
+
+    .category h2 {
+      margin: 0 0 14px;
+      color: var(--purple);
+      border-left: 6px solid var(--gold);
+      padding-left: 12px;
+      font-size: 1.4rem;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .program-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(56, 18, 86, 0.14);
+      border: 1px solid rgba(106, 13, 173, 0.18);
+      transition: transform 0.25s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .program-visual {
+      position: relative;
+      height: 230px;
+      background: #1f1f1f;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .program-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .program-info {
+      position: absolute;
+      inset: 0;
+      padding: 18px;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(45, 0, 76, 0.86), rgba(75, 0, 130, 0.92));
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.55;
+      font-size: 0.93rem;
+    }
+
+    .program-visual.is-active img,
+    .program-visual:hover img,
+    .program-visual:focus-visible img {
+      opacity: 0;
+      transform: scale(1.04);
+    }
+
+    .program-visual.is-active .program-info,
+    .program-visual:hover .program-info,
+    .program-visual:focus-visible .program-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .program-meta {
+      padding: 14px 14px 16px;
+    }
+
+    .program-meta h3 {
+      margin: 0 0 6px;
+      color: var(--purple);
+      font-size: 1.02rem;
+    }
+
+    .program-meta p {
+      margin: 0;
+      color: #5a4d68;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px;
+      background: var(--purple);
+      color: var(--gold);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      .program-visual {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1>Our Programs</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="programs.html">Programs</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="contact.html">Contact</a>
+      <a href="payment.html">Donate</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="intro">
+      Each photo below represents a real community program we run. Hover, focus, or click a photo to reveal the full story for that activity. When your cursor leaves the card, the image appears again.
+    </p>
+
+    <section class="category">
+      <h2>After-School Support</h2>
+      <div class="program-grid">
+        <article class="program-card" data-program-id="kidsafterschool">
+          <div class="program-visual" tabindex="0">
+            <img src="images/kidsafterschool.jpg" alt="Children in after-school support session" />
+            <div class="program-info">
+              <strong>Program Detail</strong>
+              <p class="program-description"></p>
+            </div>
+          </div>
+          <div class="program-meta">
+            <h3>Kids After School</h3>
+            <p>Homework support, literacy, and daily mentorship.</p>
+          </div>
+        </article>
+
+        <article class="program-card" data-program-id="kidsafterschool2">
+          <div class="program-visual" tabindex="0">
+            <img src="images/kidsafterschool2.jpg" alt="Second after-school activity group" />
+            <div class="program-info">
+              <strong>Program Detail</strong>
+              <p class="program-description"></p>
+            </div>
+          </div>
+          <div class="program-meta">
+            <h3>Kids After School 2</h3>
+            <p>Revision circles and focused learner support.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Extra Classes and Academic Enrichment</h2>
+      <div class="program-grid">
+        <article class="program-card" data-program-id="kidsextraclass">
+          <div class="program-visual" tabindex="0">
+            <img src="images/kidsextraclass.jpg" alt="Children in extra class tutoring session" />
+            <div class="program-info">
+              <strong>Program Detail</strong>
+              <p class="program-description"></p>
+            </div>
+          </div>
+          <div class="program-meta">
+            <h3>Kids Extra Class</h3>
+            <p>Small-group tutoring and exam preparation.</p>
+          </div>
+        </article>
+
+        <article class="program-card" data-program-id="kidsextraclass2">
+          <div class="program-visual" tabindex="0">
+            <img src="images/kidsextraclass2.jpg" alt="Extended extra class session for learners" />
+            <div class="program-info">
+              <strong>Program Detail</strong>
+              <p class="program-description"></p>
+            </div>
+          </div>
+          <div class="program-meta">
+            <h3>Kids Extra Class 2</h3>
+            <p>Milestone preparation and structured study plans.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Boys Mentorship and Social Awareness</h2>
+      <div class="program-grid">
+        <article class="program-card" data-program-id="boysantibullyingcampaign">
+          <div class="program-visual" tabindex="0">
+            <img src="images/boysantibullyingcampaign.jpg" alt="Boys anti-bullying campaign session" />
+            <div class="program-info">
+              <strong>Program Detail</strong>
+              <p class="program-description"></p>
+            </div>
+          </div>
+          <div class="program-meta">
+            <h3>Boys Anti-Bullying Campaign</h3>
+            <p>Respect, empathy, and safer peer environments.</p>
+          </div>
+        </article>
+
+        <article class="program-card" data-program-id="formerinmateboystalk">
+          <div class="program-visual" tabindex="0">
+            <img src="images/formerinmateboystalk.jpg" alt="Former inmate speaking to boys mentorship group" />
+            <div class="program-info">
+              <strong>Program Detail</strong>
+              <p class="program-description"></p>
+            </div>
+          </div>
+          <div class="program-meta">
+            <h3>Former Inmate Boys Talk</h3>
+            <p>Real-life storytelling and prevention mentorship.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Copyright <span id="year"></span> Batshoeneng Foundation
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Edit program descriptions here in one place.
+    const programDescriptions = {
+      kidsafterschool:
+        "Our after-school support gives children a safe space to complete homework, read with mentors, and build confidence in core subjects. We focus on steady academic growth, positive routines, and emotional encouragement so learners stay motivated and improve their results.",
+      kidsafterschool2:
+        "This session extends our after-school model with peer learning circles and guided revision. Children practice teamwork, ask questions freely, and receive one-on-one help where needed. The goal is to close learning gaps early and keep learners engaged throughout the school year.",
+      kidsextraclass:
+        "Our extra classes target difficult subjects through small-group tutoring, practical exercises, and exam preparation. Facilitators break down complex topics into clear steps, helping learners master concepts they struggle with and improve classroom participation, attendance, and test performance.",
+      kidsextraclass2:
+        "This advanced extra class stream supports learners preparing for key school milestones. We combine subject reinforcement with study planning and accountability check-ins. Learners leave with stronger study habits, improved confidence, and practical tools to sustain long-term academic progress.",
+      boysantibullyingcampaign:
+        "Our anti-bullying campaign equips boys with practical conflict-resolution skills, empathy training, and peer accountability tools. Through discussion and role-play, participants learn how to identify harmful behavior, support one another, and help create safer schools and respectful community spaces.",
+      formerinmateboystalk:
+        "In this dialogue series, former inmates share honest life experiences and choices that shaped their futures. Boys engage directly with these stories, ask questions, and reflect on consequences. The program builds decision-making skills, resilience, and a strong commitment to positive life paths.",
+    };
+
+    document.querySelectorAll(".program-card").forEach((card) => {
+      const programId = card.dataset.programId;
+      const description = programDescriptions[programId];
+      const slot = card.querySelector(".program-description");
+
+      if (slot && description) {
+        slot.textContent = description;
+      }
+    });
+
+    const visuals = document.querySelectorAll(".program-visual");
+
+    visuals.forEach((visual) => {
+      visual.addEventListener("click", () => {
+        visual.classList.toggle("is-active");
+      });
+
+      visual.addEventListener("mouseleave", () => {
+        visual.classList.remove("is-active");
+      });
+
+      visual.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          visual.classList.toggle("is-active");
+        }
+      });
+
+      visual.addEventListener("blur", () => {
+        visual.classList.remove("is-active");
+      });
+    });
+  </script>
+</body>
+</html>
